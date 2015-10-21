@@ -19,6 +19,10 @@ $(function(){
 			$('#emailnull').text("이메일을 입력하세요");
 			return;
 		}
+		else
+		{
+			 $('#emailnull').text("");
+		}
 		$('#emailnull').text("");
 		
 		var pwd=$('#userpwd').val();
@@ -56,6 +60,11 @@ $(function(){
 			$('#userage').focus();
 			return;
 		}
+		else
+		{
+			$('#agenull').text("");
+		}
+		$('#userage').text("");
 		
 		var tel=$('#usertel').val();
 		if(tel=="")
@@ -111,7 +120,7 @@ $(function(){
 		  $('#namenull').text("");
 	}); 
 	
-	$('#userbday').text("");
+
 	$('#userbday').keyup(function(){
 		  $('#agenull').text("");
 	}); 
@@ -160,11 +169,11 @@ $(function(){
 
 	  $('#userpwdcheck').keyup(function(){
 	   if($('#userpwd').val()!=$('#userpwdcheck').val()){
-	    $('font[name=pwdcheck]').text('');
+	    $('font[name=pwdcheck1]').text('');
 	    $('font[name=pwdcheck]').html("암호가 일치하지 않습니다.");
 	   }else{
 	    $('font[name=pwdcheck]').text('');
-	    $('font[name=pwdcheck]').html("암호가 일치합니다.");
+	    $('font[name=pwdcheck1]').html("암호가 일치합니다.");
 	   }
 	 }); 
 });
@@ -221,6 +230,7 @@ function ck_phone()
 	    <input type=password name="pwd" id="userpwd">
 	    <input type=password name="pwdcheck" id="userpwdcheck" placeholder="재입력">
 	    <font name = "pwdcheck" size="2" color="red"></font>
+	    <font name = "pwdcheck1" size="2" color="blue"></font>
 	    <span style="text-align: center; color:red;" id="pwdnull"></span>
     </p>
     
