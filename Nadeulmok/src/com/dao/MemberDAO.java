@@ -90,4 +90,54 @@ public class MemberDAO {
 	    	}
 	    	return count;
 	    }
+	   
+	   public String isLogin(String email,String pwd)
+	    {
+	    	String res="";
+	    	try
+	    	{
+	    		getConnection();
+	    		String sql="SELECT COUNT(*) FROM Lmember "
+	    				  +"WHERE email=?";
+	    		ps=conn.prepareStatement(sql);
+	    		ps.setString(1, email);
+	    		ResultSet rs=ps.executeQuery();
+	    		rs.next();
+	    		int count=rs.getInt(1);
+	    		rs.close();
+	    		if(count==0)
+	    		{
+	    			res="NOID";
+	    		}
+	    		else
+	    		{
+	    			sql="SELECT pwd,name FROM Lmember "
+	    			   +"WHERE email=?";
+	    			ps=conn.prepareStatement(sql);
+	    			ps.setString(1, email);
+	    			rs=ps.executeQuery();
+	    			rs.next();
+	    			String db_pwd=rs.getString(1);
+	    			String name=rs.getString(2);
+	    			rs.close();
+	    			
+	    			if(pwd.equals(db_pwd))
+	    			{
+	    				res=name;
+	    			}
+	    			else
+	    			{
+	    				res="NOPWD";
+	    			}
+	    		}
+	    	}catch(Exception ex)
+	    	{
+	    		System.out.println(ex.getMessage());
+	    	}
+	    	finally
+	    	{
+	    		disConnection();
+	    	}
+	    	return res;
+	    }
 }

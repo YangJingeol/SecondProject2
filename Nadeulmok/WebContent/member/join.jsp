@@ -10,7 +10,6 @@
 <script type="text/javascript" src="../js/shadowbox.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-
 $(function(){
 	$('#btnSub').click(function(){
 		var email=$('#useremail').val();
@@ -126,6 +125,22 @@ $(function(){
 	}); 
 });
 
+$(function(){
+	  $('#userpwd').keyup(function(){
+		  $('#pwdnull').text("");
+	   $('font[name=pwdcheck]').text('');
+	  }); //#user_pass.keyup
+
+	  $('#userpwdcheck').keyup(function(){
+	   if($('#userpwd').val()!=$('#userpwdcheck').val()){
+	    $('font[name=pwdcheck1]').text('');
+	    $('font[name=pwdcheck]').html("암호가 일치하지 않습니다.");
+	   }else{
+	    $('font[name=pwdcheck]').text('');
+	    $('font[name=pwdcheck1]').html("암호가 일치합니다.");
+	   }
+	 }); 
+});
 
 function ck_age() 
 { 
@@ -161,23 +176,6 @@ function postfind()
 	});
 }
 
-$(function(){
-	  $('#userpwd').keyup(function(){
-		  $('#pwdnull').text("");
-	   $('font[name=pwdcheck]').text('');
-	  }); //#user_pass.keyup
-
-	  $('#userpwdcheck').keyup(function(){
-	   if($('#userpwd').val()!=$('#userpwdcheck').val()){
-	    $('font[name=pwdcheck1]').text('');
-	    $('font[name=pwdcheck]').html("암호가 일치하지 않습니다.");
-	   }else{
-	    $('font[name=pwdcheck]').text('');
-	    $('font[name=pwdcheck1]').html("암호가 일치합니다.");
-	   }
-	 }); 
-});
-
 function phoneCheck(obj) {
     var n = obj.value.replace(/\-/g, "");
     var len = n.length;
@@ -194,7 +192,7 @@ function phoneCheck(obj) {
       }
     }
     obj.value = number;
-  }
+}
   
 function ck_phone()
   {
@@ -315,9 +313,9 @@ function ck_phone()
     <p>
     <label for="userpost">주소</label>
     <span id="cellStyle">
-     <input type=text name=post id="userpost" readonly>
+     <input type=text id="userpost" readonly>
      <input type=button value="우편번호검색" id="userpostBtn" onclick="postfind()">
-     <input type=text name=addr1 id="useraddr1" readonly>
+     <input type=text  id="useraddr1" readonly>
      <input type=text id="useraddr2">
     </span>
     </p>

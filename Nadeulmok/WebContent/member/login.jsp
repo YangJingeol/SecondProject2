@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -28,12 +29,12 @@
 <body>
 	
 	<center>
-		<form method = post action=Login name=frm>
+		<form method = post action="../member/login_ok.jsp" name=frm>
 		<table border = 0 width = 200>
 			<tr>
 				<td width = 20% align = center>ID</td>
 				<td width = 80% align = left>
-				<input type = text name=id size=12>
+				<input type = text name=email size=12>
 				</td>
 				<td rowsapn = 2>
 					<input type=button value=Login onclick=login()>

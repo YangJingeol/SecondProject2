@@ -9,3 +9,4 @@
     dao.memberJoin(d);
 	response.sendRedirect("login.jsp");
 %>
+
